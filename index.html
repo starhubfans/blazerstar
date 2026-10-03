@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang='id'>
+<html lang="id">
 
 <head>
 
-<meta charset='UTF-8'/>
-<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+<meta charset="UTF-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
 <title>NextWatchMedia</title>
 
-<style id='page-skin-1' type='text/css'>
+<style>
 
 *{
 margin:0;
@@ -106,21 +106,8 @@ align-items:center;
 justify-content:center;
 font-size:15px;
 font-weight:600;
-letter-spacing:0.5px;
+letter-spacing:.5px;
 z-index:10;
-}
-
-.badge{
-position:absolute;
-top:12px;
-left:12px;
-background:#ff2f6d;
-padding:8px 12px;
-border-radius:50px;
-font-size:12px;
-font-weight:700;
-z-index:5;
-box-shadow:0 5px 15px rgba(255,0,102,0.4);
 }
 
 .video-info{
@@ -160,7 +147,7 @@ margin:12px;
 background:#121212;
 border-radius:20px;
 padding:14px;
-border:1px solid rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,.05);
 overflow:hidden;
 }
 
@@ -193,74 +180,70 @@ font-size:18px;
 
 <body>
 
-<div class='page'>
+<div class="page">
 
-<div class='header'>
+<!-- HEADER -->
 
-<div class='logo'>
+<div class="header">
+
+<div class="logo">
 Next Viral <span>Hubs</span>
 </div>
 
-<div class='sub'>
+<div class="sub">
 Watch trending viral videos everyday 🔥
 </div>
 
 </div>
 
 
-<div class='video-card'>
+<!-- VIDEO -->
 
-<div class='video-box'>
+<div class="video-card">
 
-<div id='videoLoader'>
+<div class="video-box">
+
+<div id="videoLoader">
 Video load in 1 second...
 </div>
 
 <video
-controls='controls'
-controlsList='nodownload noremoteplayback'
-disablePictureInPicture='disablePictureInPicture'
-id='player'
-muted='muted'
-playsinline='playsinline'
-poster='https://via.placeholder.com/480x720?text=Loading...'
-preload='metadata'
->
+controls
+controlsList="nodownload noremoteplayback"
+disablePictureInPicture
+id="player"
+muted
+playsinline
+poster="https://via.placeholder.com/480x720?text=Loading..."
+preload="metadata">
 
 <source
-id='videoSource'
-src=''
-type='video/mp4'>
-</source>
+id="videoSource"
+src=""
+type="video/mp4">
 
 </video>
 
 </div>
 
 
-<div class='video-info'>
+<div class="video-info">
 
-<div class='video-title'>
+<div class="video-title">
 Hot Trending Video Tonight 😍
 </div>
 
-<div class='video-desc'>
+<div class="video-desc">
 Watch the latest viral content people are talking about right now.
 </div>
 
-<div class='stats'>
+<div class="stats">
 
-<div>
-👁 7.3M Views
-</div>
+<div>👁 7.3M Views</div>
 
-<div>
-&#10084;&#65039; 591K Likes
-</div>
+<div>❤️ 591K Likes</div>
 
-<div>
-🔥 Trending
-</div>
+<div>🔥 Trending</div>
 
 </div>
 
@@ -269,18 +252,22 @@ Watch the latest viral content people are talking about right now.
 </div>
 
 
-<div class='section-title'>
+<!-- TRENDING -->
+
+<div class="section-title">
 🔥 Trending Videos
 </div>
 
 
-<div class='ads-card'>
+<!-- NATIVE BANNER -->
 
-<div class='ads-label'>
+<div class="ads-card">
+
+<div class="ads-label">
 <center>Advertisement</center>
 </div>
 
-<div style='text-align:center;'>
+<div style="text-align:center;">
 
 <script
 data-cfasync="false"
@@ -294,9 +281,11 @@ src="//qw.rolledipocras.com/tiTtAiKEeLuZ/151239">
 </div>
 
 
-<div class='footer'>
+<!-- FOOTER -->
 
-&#169; 2026 Viral Media &#8226; All Rights Reserved
+<div class="footer">
+
+© 2026 Viral Media • All Rights Reserved
 
 </div>
 
@@ -307,10 +296,9 @@ src="//qw.rolledipocras.com/tiTtAiKEeLuZ/151239">
      JAVASCRIPT UTAMA
 ===================================================== -->
 
-<script type='text/javascript'>
+<script>
 
-(function () {
-
+(function(){
 
 /* =========================
    IMPRESSION TAGGING
@@ -318,8 +306,7 @@ src="//qw.rolledipocras.com/tiTtAiKEeLuZ/151239">
 
 const impressionSeen = new Set();
 
-
-function tagImpression(name, element){
+function tagImpression(name,element){
 
 if(!element || impressionSeen.has(name)){
 return;
@@ -329,10 +316,10 @@ impressionSeen.add(name);
 
 try{
 
-const key = "nextwatch_impressions";
+const key="nextwatch_impressions";
 
-const data = JSON.parse(
-localStorage.getItem(key) || "[]"
+const data=JSON.parse(
+localStorage.getItem(key)||"[]"
 );
 
 data.push({
@@ -374,10 +361,10 @@ document.body
    VIDEO & ADS
 ========================= */
 
-const videoCard =
+const videoCard=
 document.querySelector(".video-card");
 
-const adCard =
+const adCard=
 document.querySelector(".ads-card");
 
 
@@ -387,7 +374,7 @@ document.querySelector(".ads-card");
 
 if("IntersectionObserver" in window){
 
-const observer =
+const observer=
 new IntersectionObserver(
 
 (entries)=>{
@@ -396,14 +383,12 @@ entries.forEach(entry=>{
 
 if(
 !entry.isIntersecting ||
-entry.intersectionRatio < 0.25
+entry.intersectionRatio<0.25
 ){
-
 return;
-
 }
 
-if(entry.target === videoCard){
+if(entry.target===videoCard){
 
 tagImpression(
 "video_impression",
@@ -412,7 +397,7 @@ entry.target
 
 }
 
-if(entry.target === adCard){
+if(entry.target===adCard){
 
 tagImpression(
 "native_banner_impression",
@@ -435,24 +420,13 @@ threshold:[0.25]
 
 );
 
-
 if(videoCard){
-
-observer.observe(
-videoCard
-);
-
+observer.observe(videoCard);
 }
-
 
 if(adCard){
-
-observer.observe(
-adCard
-);
-
+observer.observe(adCard);
 }
-
 
 }else{
 
@@ -470,45 +444,32 @@ adCard
 
 
 /* =========================
-   SMARTLINK
-========================= */
-
-const smartlink =
-"https://www.facebook.com/janoub.lebnan/";
-
-
-/* =========================
    VIDEO PARAMETER
 ========================= */
 
-const params =
+const params=
 new URLSearchParams(
 window.location.search
 );
 
-let video =
-params.get("v");
-
+let video=params.get("v");
 
 if(!video){
 
-video =
-"c0eRwoHP1";
+video="c0eRwoHP1";
 
 }
-
 
 if(!video.startsWith("http")){
 
-video =
-"https://cdn.videy.co/" + video;
+video=
+"https://cdn.videy.co/"+video;
 
 }
 
-
 if(!video.endsWith(".mp4")){
 
-video += ".mp4";
+video+=".mp4";
 
 }
 
@@ -517,83 +478,69 @@ video += ".mp4";
    VIDEO ELEMENT
 ========================= */
 
-const player =
+const player=
 document.getElementById("player");
 
-const source =
+const source=
 document.getElementById("videoSource");
 
-const loader =
+const loader=
 document.getElementById("videoLoader");
 
 
-source.src =
-video;
-
+source.src=video;
 
 player.load();
 
 
 /* =========================
-   LOADING 1 DETIK
+   LOADING
 ========================= */
 
 setTimeout(function(){
 
-loader.style.display =
-"none";
-
-player.play().catch(
-()=>{}
-);
+loader.style.display="none";
 
 },1000);
 
 
 /* =====================================================
-   POPUNDER SAAT VIDEO DIKLIK
+   POPUNDER SAAT PLAY VIDEO
 ===================================================== */
 
-let popunderLoaded = false;
-
+let popunderLoaded=false;
 
 player.addEventListener(
-"click",
+"play",
 function(){
 
 if(popunderLoaded){
-
 return;
-
 }
 
-popunderLoaded = true;
+popunderLoaded=true;
 
 
-/* Buat element script popunder */
+/*
+   Load script popunder
+   hanya ketika video mulai diputar
+*/
 
-const popunder =
+const popunder=
 document.createElement("script");
-
 
 popunder.setAttribute(
 "data-cfasync",
 "false"
 );
 
+popunder.async=true;
 
-popunder.async = true;
-
-
-popunder.type =
+popunder.type=
 "text/javascript";
 
-
-popunder.src =
+popunder.src=
 "//lx.casedesuvre.com/rH0RY3WKA5xv/155941";
-
-
-/* Jalankan script */
 
 document.body.appendChild(
 popunder
@@ -608,9 +555,10 @@ popunder
 
 player.addEventListener(
 "contextmenu",
-e=>e.preventDefault()
+function(e){
+e.preventDefault();
+}
 );
-
 
 })();
 
@@ -625,44 +573,37 @@ e=>e.preventDefault()
 
 <script type="text/javascript">
 
-var _Hasync = _Hasync || [];
-
+var _Hasync=_Hasync||[];
 
 _Hasync.push([
 'Histats.start',
 '1,5044704,4,9,110,60,00011111'
 ]);
 
-
 _Hasync.push([
 'Histats.fasi',
 '1'
 ]);
-
 
 _Hasync.push([
 'Histats.track_hits',
 ''
 ]);
 
-
 (function(){
 
-var hs =
+var hs=
 document.createElement('script');
 
-hs.type =
-'text/javascript';
+hs.type='text/javascript';
 
-hs.async =
-true;
+hs.async=true;
 
-hs.src =
+hs.src=
 '//s10.histats.com/js15_as.js';
 
-
 (
-document.getElementsByTagName('head')[0] ||
+document.getElementsByTagName('head')[0]||
 document.getElementsByTagName('body')[0]
 ).appendChild(hs);
 
@@ -683,11 +624,6 @@ border="0">
 </a>
 
 </noscript>
-
-
-<!-- =====================================================
-     END HISTATS
-===================================================== -->
 
 
 </body>
